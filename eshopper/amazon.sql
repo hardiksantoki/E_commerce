@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 03:34 PM
+-- Generation Time: Jun 07, 2022 at 06:48 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `amazon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `p_id` int(11) NOT NULL,
+  `p_name` varchar(255) NOT NULL,
+  `image` blob NOT NULL,
+  `price` int(255) NOT NULL,
+  `detail` varchar(5000) NOT NULL,
+  `flag` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,6 +66,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `mobile`, `gender`, `bit`
 --
 
 --
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`p_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -59,6 +80,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
