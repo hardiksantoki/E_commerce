@@ -9,16 +9,28 @@ $mobile = $_POST['mobile'];
 $gender = $_POST['gender'];
 
 
-$query = "INSERT INTO user (name,email,password,mobile,gender) VALUES ('$name','$email','$pass','$mobile','$gender')";
+$query = "SELECT * FROM user WHERE email = '$email'";
 
-try{
-$result = $connect->query($query);
-} catch(PDOException $e){
-    echo "Connection failed: " . $e->getMessage();
-}
+$resultcheck = $connect->query($query);
 
-if ($result) {
-    header('Location: ../index.html');
+$num = $resultcheck->rowCount();
+
+if ($num) {
+    header('Location: ../registration.php');
 } else {
-    echo 'error in registration';
+
+    $query = "INSERT INTO user (name,email,password,mobile,gender) VALUES ('$name','$email','$pass','$mobile','$gender')";
+
+    try {
+        $result = $connect->query($query);
+        // header('Location: ../login.php');
+        if ($result) {
+            header('Location: ../login.php');
+        } else {
+            echo 'error in registration';
+        }
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+
 }
