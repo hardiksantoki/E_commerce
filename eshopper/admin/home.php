@@ -129,19 +129,25 @@
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse"  style="background-color: #D19C97;">
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background-color: #D19C97;">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="home.php" class="nav-item nav-link active">Home</a>
+                            <a href="home.php" class="nav-item nav-link  active">Home</a>
                             <a href="user.php" class="nav-item nav-link">Users</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Products</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Mobiles</a>
-                                    <a href="checkout.html" class="dropdown-item">Laptops</a>
+                                    <a href="admin_mobile.php" class="dropdown-item">Mobiles</a>
+                                    <a href="admin_laptop.php" class="dropdown-item">Laptops</a>
+                                    <a href="admin_men_cloths.php" class="dropdown-item">Men Cloths</a>
+                                    <a href="admin_women_cloths.php" class="dropdown-item">Women Cloths</a>
+                                    <a href="admin_child_cloths.php" class="dropdown-item">Child Cloths</a>
+                                    <a href="admin_grocery.php" class="dropdown-item">Grocery</a>
+                                    <a href="admin_furniture.php" class="dropdown-item">Furniture</a>
+                                    <a href="admin_accessories.php" class="dropdown-item">Accessories</a>
                                 </div>
                             </div>
                             <a href="add_product.php" class="nav-item nav-link">Add Product</a>
-                            <a href="detail.html" class="nav-item nav-link"></a>
+                            <!-- <a href="detail.html" class="nav-item nav-link"></a> -->
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="login.php" class="nav-item nav-link">Logout</a>
