@@ -23,6 +23,9 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- validation -->
+    <script type="text/javascript" src="js/loginvalidation.js"></script>
 </head>
 
 <body>
@@ -131,7 +134,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="index.php" class="nav-item nav-link">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Shop</a>
                             <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
@@ -183,16 +186,17 @@
 
                             <div class="col-md-12 form-group">
                                 <label>E-mail</label>
-                                <input class="form-control" type="text" name="email" placeholder="example@email.com">
+                                <input class="form-control" type="text" id="email" name="email" placeholder="example@email.com">
                             </div>
 
                             <div class="col-md-12 form-group">
                                 <label>Password</label>
-                                <input class="form-control" type="password" name="password" placeholder="example@123">
+                                <input class="form-control" type="password" id="password" name="password" placeholder="example@123">
                             </div>
+                            <span id="elo1" class="serr" style='color:red'></span>
 
                             <div class="col-md-12 d-flex justify-content-center ">
-                                <button type="submit" class="font-weight-bold " style="background-color: #d19c97; padding: 4px 53px; border-radius: 30px ; border: 5px solid #d19c97; font-size: 24px;">Login</button>
+                                <button type="submit" onclick="return login()" class="font-weight-bold " style="background-color: #d19c97; padding: 4px 53px; border-radius: 30px ; border: 5px solid #d19c97; font-size: 24px;">Login</button>
                             </div>
 
 
@@ -289,7 +293,7 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-dark mb-2" href="index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our
                                 Shop</a>
                             <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop
@@ -304,7 +308,7 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-dark mb-2" href="index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
                             <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our
                                 Shop</a>
                             <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop
