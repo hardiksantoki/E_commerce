@@ -40,7 +40,7 @@ $result = $connect->query($query);
     <link href="../css/datatable.css" rel="stylesheet">
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
+    <script type="text/javascript" src="../js/validation.js"></script>
 
 
 
@@ -142,7 +142,7 @@ $result = $connect->query($query);
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['password']; ?></td>
                             <td><?php echo $row['mobile']; ?></td>
-                            <td style="width: 60px;"><a href="#"><i class="fa fa-pencil-alt " style="color: orange;"></i></a></td>
+                            <td style="width: 60px;"><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-pencil-alt " style="color: orange;"></i></a></td>
                             <td style="width: 60px;"> <a class="btn" href="#"><i class="fa fa-trash" style="color: red;"></i></a></td>
                         </tr>
                     <?php $i++;} ?>
@@ -201,7 +201,68 @@ $result = $connect->query($query);
     </div>
     <!-- Footer End -->
 
+    <!-- Model Update User-->
+                        <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> -->
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border: solid #d19c97 4px;border-radius: 30px;">
+        <h4 class="font-weight-semi-bold mb-4 text-center  "
+                          style="background-color: #d19c97; padding: 10px;    border-radius: 19px 19px 0px 0px;">
+                          Update User <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;&nbsp;&nbsp;</span>
+        </button></h4>
+      <!-- <div class="modal-header"> -->
+       
+      <!-- </div> -->
+      <div class="modal-body" style="margin-top:-15px;">
+        <form action="../php/register.php" method="POST">
+                  
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label>Name</label>
+                            <input class="form-control" name="name" id="name" type="text" placeholder="John">
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" name="email" id="email" type="text" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Mobile No</label>
+                            <input class="form-control" name="mobile" id="mobile"type="text" placeholder="+123 456 789">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Password</label>
+                            <input class="form-control" name="pass" id="pass"type="password" placeholder="example@123">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Gender</label><br>
+                            <input type="radio" id="male" name="gender" value="Male">
+                            <label for="html">Male</label>
+                            <input type="radio" id="female" name="gender" value="Female">
+                            <label for="css">Female</label><br>
+                        </div>
+                        <span id="elo" class="serr" style='color:red'></span>
+                        
+                        <div class="col-md-12 d-flex justify-content-center ">
+                            <button type="submit" class="font-weight-bold " onclick="return regster()" style="background-color: #d19c97;   padding: 4px 53px;    border-radius: 30px ;     border: 5px solid #d19c97;     font-size: 24px;">Update</button> 
+                        </div>
+                        
+                    </div>
+                </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
