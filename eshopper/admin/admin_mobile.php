@@ -4,7 +4,6 @@ require_once '../php/connection.php';
 $query = "SELECT * FROM product WHERE flag =1";
 
 $result = $connect->query($query);
-
 ?>
 
 <!DOCTYPE html>
@@ -214,24 +213,11 @@ $result = $connect->query($query);
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 
-
-    <!-- data table -->
-    <!-- <script>
-        // $(document).ready( function () {
-        //     $('#table_id').DataTable();
-        // } );
-
-        let table = new DataTable('#example', {
-            // options
-        });
-    </script> -->
     <!-- data table -->
 
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-
-
 
     <script>
         $(document).ready(function() {
