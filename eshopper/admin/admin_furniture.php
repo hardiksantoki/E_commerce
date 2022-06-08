@@ -1,10 +1,9 @@
 <?php
 require_once '../php/connection.php';
 
-$query = "SELECT * FROM user WHERE bit=0";
+$query = "SELECT * FROM product WHERE flag =1";
 
 $result = $connect->query($query);
-
 
 ?>
 
@@ -13,7 +12,7 @@ $result = $connect->query($query);
 
 <head>
     <meta charset="utf-8">
-    <title>EShopper - Bootstrap Shop Template</title>
+    <title>Admin Panel</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -35,25 +34,16 @@ $result = $connect->query($query);
     <link href="../css/style.css" rel="stylesheet">
 
 
+    <!-- data tables
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script> -->
+
     <!-- data tables -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"> -->
     <link href="../css/datatable.css" rel="stylesheet">
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
-
-
-
-
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet"> -->
-    <!-- <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
-    
-
-    <!-- <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script> -->
 </head>
 
 <body>
@@ -73,11 +63,10 @@ $result = $connect->query($query);
     <!-- Navbar Start -->
     <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
-
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Covrize</span>Shopping Point</h1>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -85,9 +74,9 @@ $result = $connect->query($query);
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background-color: #D19C97;">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="home.php" class="nav-item nav-link">Home</a>
-                            <a href="user.php" class="nav-item nav-link active">Users</a>
+                            <a href="user.php" class="nav-item nav-link">Users</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Products</a>
+                                <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Products</a>
                                 <div class="dropdown-menu rounded-0 m-0">
                                     <a href="admin_mobile.php" class="dropdown-item">Mobiles</a>
                                     <a href="admin_laptop.php" class="dropdown-item  ">Laptops</a>
@@ -95,7 +84,7 @@ $result = $connect->query($query);
                                     <a href="admin_women_cloths.php" class="dropdown-item">Women Cloths</a>
                                     <a href="admin_child_cloths.php" class="dropdown-item">Child Cloths</a>
                                     <a href="admin_grocery.php" class="dropdown-item">Grocery</a>
-                                    <a href="admin_furniture.php" class="dropdown-item">Furniture</a>
+                                    <a href="admin_furniture.php" class="dropdown-item active">Furniture</a>
                                     <a href="admin_accessories.php" class="dropdown-item">Accessories</a>
                                 </div>
                             </div>
@@ -108,7 +97,6 @@ $result = $connect->query($query);
                         </div>
                     </div>
                 </nav>
-
             </div>
         </div>
     </div>
@@ -116,36 +104,42 @@ $result = $connect->query($query);
 
 
     <!-- Featured Start -->
-    <div class="container-fluid pt-5"  >
-        <div class="row px-xl-5 pb-3"  >
-
-
-            <table id="example" class="table table-striped table-bordered"  style="width:100%">
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <a href="#"></a>
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead class="table-primary">
                     <tr>
-                    <td>Sr.No.</td>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Password</td>
-                        <td>Contact</td>
+                        <td>Sr.No.</td>
+                        <td>Product Name</td>
+                        <td>Product Image</td>
+                        <td>Product Price</td>
+                        <td>Product Quantity</td>
+                        <td>Product Details</td>
                         <td>Update</td>
                         <td>Delete</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $i=1;
+                    $i = 1;
                     while ($row = $result->fetch()) { ?>
                         <tr>
                             <td><?php echo $i; ?></td>
-                            <td><?php echo $row['name']; ?> </td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['password']; ?></td>
-                            <td><?php echo $row['mobile']; ?></td>
+                            <td><?php echo $row['p_name']; ?> </td>
+                            <td>
+                                <!-- <?php echo $row['image']; ?> -->
+
+                                <img src="../php/images/<?php echo $row['image']; ?>" width="100px" height="100px" />
+                            </td>
+                            <td><?php echo $row['price']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
+                            <td><?php echo $row['detail']; ?></td>
                             <td style="width: 60px;"><a href="#"><i class="fa fa-pencil-alt " style="color: orange;"></i></a></td>
                             <td style="width: 60px;"> <a class="btn" href="#"><i class="fa fa-trash" style="color: red;"></i></a></td>
                         </tr>
-                    <?php $i++;} ?>
+                    <?php $i++;
+                    } ?>
                 </tbody>
             </table>
         </div>
@@ -188,10 +182,11 @@ $result = $connect->query($query);
         <div class="row border-top border-light mx-xl-5 py-4">
             <div class="col-md-6 px-xl-0">
                 <p class="mb-md-0 text-center text-md-left text-dark">
-                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Covrize Shopping Point</a>. All Rights Reserved.
+                     <!-- Designed
                     by
                     <a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a><br>
-                    Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">
@@ -221,13 +216,23 @@ $result = $connect->query($query);
 
 
     <!-- data table -->
-    
+    <!-- <script>
+        // $(document).ready( function () {
+        //     $('#table_id').DataTable();
+        // } );
+
+        let table = new DataTable('#example', {
+            // options
+        });
+    </script> -->
+    <!-- data table -->
+
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-    
 
-    
+
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
