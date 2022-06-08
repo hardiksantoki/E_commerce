@@ -5,6 +5,7 @@ require_once 'connection.php';
 $name = $_POST['name'];
 // $image = $_POST['image'];
 $price = $_POST['price'];
+$quantity = $_POST['quantity'];
 $detail = $_POST['detail'];
 $category = $_POST['category'];
 
@@ -51,7 +52,7 @@ $image = basename($_FILES["image"]["name"], ".jpg"); // used to store the filena
 
 
 
-$query = "INSERT INTO product (p_name,image,price,detail,flag) VALUES ('$name','$image','$price','$detail','$category')";
+$query = "INSERT INTO product (p_name,image,price,quantity,detail,flag) VALUES ('$name','$image','$price','$quantity','$detail','$category')";
 
 
 try {

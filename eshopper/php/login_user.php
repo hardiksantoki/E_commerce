@@ -10,14 +10,22 @@ $query = "SELECT * FROM user WHERE email = '$email' AND password= '$pass'";
 // $result = mysqli_query($connect, $query);
 
 
-try{
+try {
     $result = $connect->query($query);
-} catch(PDOException $e){
-    echo "Connection failed: " . $e->getMessage();
-}
 
-if ($result) {
-    header('Location: ../index.html');
-} else {
-    echo 'error in login';
+    $num = $result->rowCount();
+    echo $num;
+    // echo $row;
+    if ($num) {
+        $row = $result->fetch();
+        if ($row['bit'] == '1') {
+            header('Location: ../admin/home.php');
+        } else {
+            header('Location: ../index.php');
+        }
+    } else {
+        header('Location: ../login.php');
+    }
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
