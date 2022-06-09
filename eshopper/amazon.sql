@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2022 at 06:48 AM
+-- Generation Time: Jun 09, 2022 at 06:36 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -32,9 +32,17 @@ CREATE TABLE `product` (
   `p_name` varchar(255) NOT NULL,
   `image` blob NOT NULL,
   `price` int(255) NOT NULL,
+  `quantity` int(255) NOT NULL,
   `detail` varchar(5000) NOT NULL,
   `flag` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`p_id`, `p_name`, `image`, `price`, `quantity`, `detail`, `flag`) VALUES
+(6, 'redmi note 5 pro', 0x6f70656e6c6179657273206461746174696c652e706e67, 10000, 1000, 'dfnsd fidsfsd ', 1);
 
 -- --------------------------------------------------------
 
@@ -47,7 +55,7 @@ CREATE TABLE `user` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `mobile` int(12) NOT NULL,
+  `mobile` bigint(12) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `bit` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -57,9 +65,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `mobile`, `gender`, `bit`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin123', 123456789, 'Male', 1),
-(2, 'hardik', 'hardik@gmail.com', 'hardik123', 123456, 'Male', 0),
-(3, 'hardik', 'hardik@gmail.com', 'hardik123', 1111111111, 'Male', 0);
+(1, 'admin', 'admin@gmail.com', 'YWRtaW4xMjM=', 1234567891, 'Male', 1),
+(5, 'hardik', 'hardik@gmail.com', 'aGFyZGlrMTIz', 7041454256, 'Male', 0),
+(6, 'Vaibhav', 'vaibhv@gmail.com', 'dmFpYmhhdjEyMw==', 1234567890, 'Male', 0);
 
 --
 -- Indexes for dumped tables
@@ -85,13 +93,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
